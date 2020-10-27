@@ -20,6 +20,9 @@ const moduleA = {
     // 这里传入的是整个getter对象，不止是模块中可用，根store的getters中也可以这么定义函数
     fullName2(state,getter){
       return '真~' + getter.fullName;
+    },
+    fullName3(state,getter,rootState){
+      return '真@' + getter.fullName2 + rootState.info.name
     }
   }
 }
