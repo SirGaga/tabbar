@@ -12,7 +12,12 @@ const moduleA = {
       state.name = payload
     }
   },
-  actions: {},
+  actions: {
+    // 这里的context 只能commit自己模块的mutations中的方法
+    async aUpdateName(context) {
+      await context.commit('updateName','王五');
+    }
+  },
   getters: {
     fullName(state) {
       return '真·' + state.name;
